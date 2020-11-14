@@ -27,9 +27,9 @@ install:
 #---------------------------------#
 
 build_script:
-  - cmd: dotnet build .\src\Juukbe.Common.csproj -c Release /p:CI=true /p:GeneratePackageOnBuild=false
-  - cmd: dotnet test .\src\Juukbe.Common.csproj -c Release /p:CI=true
-  - cmd: dotnet pack .\src\Juukbe.Common.csproj --no-build -c Release /p:Packing=true /p:PackageOutputPath=%CD%\.nupkgs /p:CI=true
+  - cmd: dotnet build .\src\Juukbe.Common\Juukbe.Common.csproj -c Release /p:CI=true /p:GeneratePackageOnBuild=false
+  - cmd: dotnet test .\src\Juukbe.Common\Juukbe.Common.csproj -c Release /p:CI=true
+  - cmd: dotnet pack .\src\Juukbe.Common\Juukbe.Common.csproj --no-build -c Release /p:Packing=true /p:PackageOutputPath=%CD%\.nupkgs /p:CI=true
 
 before_build:
   - dotnet --info
