@@ -2,6 +2,38 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <AssemblyName>Juukbe.Common</AssemblyName>
+    <RootNamespace>Juukbe</RootNamespace>
+    <Description></Description>
+    <Copyright>2020</Copyright>
+    <Authors>Juukbe</Authors>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <VersionPrefix>0.0.1</VersionPrefix>
+    <VersionPrefix Condition=" '$(BuildNumber)' != '' ">$(VersionPrefix)-$(BuildNumber)</VersionPrefix>
+    <PackageId>Juukbe.Common</PackageId>
+    <PackageIcon>icon.jpg</PackageIcon>
+    <PackageIconUrl />
+    <PackageTags></PackageTags>
+    <PackageProjectUrl>https://github.com/juukbe/common</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/juukbe/common</RepositoryUrl>
+    <!--
+    <RepositoryType>.net c# .net-core</RepositoryType>
+    <AssemblyOriginatorKeyFile>Juukbe.Common.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+    -->
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IsPackable>true</IsPackable>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
-
+  
+  <ItemGroup>
+    <None Include="icon.jpg" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  
 </Project>
