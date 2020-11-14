@@ -45,7 +45,7 @@ deploy:
     on:
       branch: main
     api_key:
-      secure: foo
+      secure: oy2gibffwojheh6gqciq3qtqqf5sibmevbiu6l47nxbefm
 
 #---------------------------------#
 #         notifications           #
