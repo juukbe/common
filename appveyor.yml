@@ -38,21 +38,13 @@ before_build:
 test: off
 
 artifacts:
-- path: .\.nupkgs\*.nupkg
-
-deploy:
-  - provider: NuGet
-    on:
-      branch: main
-    api_key:
-      secure: oy2gibffwojheh6gqciq3qtqqf5sibmevbiu6l47nxbefm
+  - path: .\.nupkgs\*.nupkg
 
 #---------------------------------#
 #         notifications           #
 #---------------------------------#
 
 notifications:
-  # Email
   - provider: Email
     to:
       - juukbe@protonmail.com
