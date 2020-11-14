@@ -16,9 +16,7 @@ max_jobs: 1
 #    environment configuration    #
 #---------------------------------#
 
-image:
-  - Ubuntu
-  - Visual Studio 2019
+image: Visual Studio 2019
 
 install:
   - cmd: >-
@@ -28,20 +26,26 @@ install:
 #       build configuration       #
 #---------------------------------#
 
-configuration: Release
-
-build:
-    project: Juukbe.Common.sln
-    verbosity: minimal
-
 build_script:
-  - cmd: dotnet build Juukbe.Common.csproj -c Release /p:CI=true /p:GeneratePackageOnBuild=false
-  - cmd: dotnet test Juukbe.Common.csproj -c Release /p:CI=true
-  - cmd: dotnet pack Juukbe.Common.csproj --no-build -c Release /p:Packing=true /p:PackageOutputPath=%CD%\.nupkgs /p:CI=true
+  - cmd: dotnet build .\src\Juukbe.Common.csproj -c Release /p:CI=true /p:GeneratePackageOnBuild=false
+  - cmd: dotnet test .\src\Juukbe.Common.csproj -c Release /p:CI=true
+  - cmd: dotnet pack .\src\Juukbe.Common.csproj --no-build -c Release /p:Packing=true /p:PackageOutputPath=%CD%\.nupkgs /p:CI=true
 
 before_build:
   - dotnet --info
   - cmd: nuget restore Juukbe.Common.sln
+
+test: off
+
+artifacts:
+- path: .\.nupkgs\*.nupkg
+
+deploy:
+  - provider: NuGet
+    on:
+      branch: main
+    api_key:
+      secure: foo
 
 #---------------------------------#
 #         notifications           #
